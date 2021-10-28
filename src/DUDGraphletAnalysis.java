@@ -23,7 +23,7 @@ public class DUDGraphletAnalysis {
     NodeMap UDMap;
     Random rd;
     int[] budget_array;
-    long[] current = new long[DirectedMotifType.values().length]; // graph의 현재 motif 개수
+    long[] current = new long[DirectedMotifType.values().length];
     int count = 0;
     double[] target_motif_distribution; 
     static int UNKNOWN = -1;
@@ -107,7 +107,6 @@ public class DUDGraphletAnalysis {
         }
         try{
             File read_file = new File(read_path);
-            // 분석하려고 하는 graph (edge)를 읽어오는 filereader
             BufferedReader filereader = new BufferedReader(new FileReader(read_file));
             String line = null;
             while((line = filereader.readLine()) != null){
@@ -121,19 +120,16 @@ public class DUDGraphletAnalysis {
         }
     }
 
-    // edge(v1, v2)를 추가하고, 이에 따라서 변경되는 motif distribution의 변화를 함께 분석하는 함수
     public void addEdge(int v1, int v2) {
         
         if (DMap.contains(v1, v2) || v1 == v2){
             return;
         }
 
-        // graph에 edge 추가
         DMap.addEdge(v1, v2);
         UDMap.addEdge(v1, v2);
         UDMap.addEdge(v2, v1);
 
-        // Directed Graphlet Analysis
         IntOpenHashSet visited = new IntOpenHashSet();
         
         for(int v3 : DMap.getNeighbors(v1)){
