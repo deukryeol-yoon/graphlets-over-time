@@ -3,7 +3,7 @@ public class main {
     // Dataset Argument
     public static String[][] dataset = {
         //format : {dataset, numNodes, maxInDegree, numEdges}
-        {"hepph", "30565", "660", "346849"},
+        //{"hepph", "30565", "660", "346849"},
         //{"hepph-random", "30565", "660", "346849"},
         //{"hepth", "18477", "1069", "136190"},
         //{"hepth-random", "18477", "1069", "136190"},

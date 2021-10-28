@@ -161,6 +161,7 @@ public class  GraphletEvolution {
         try{
             
             // Write ratio distribution
+            /*
             for(int i = 0; i < current.length; i++){
                 current_string[i] = Float.toString(graphletFrequency[i] / total);
             }
@@ -168,7 +169,7 @@ public class  GraphletEvolution {
             mw.flush();
             
             // Write absolute count distribution
-            /*
+            
             for(int i = 0; i < current.length; i++){
                 current_string[i] = Long.toString(graphletFrequency[i]);
             }
