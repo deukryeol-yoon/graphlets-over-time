@@ -1,5 +1,3 @@
-package src;
-
 import java.io.Serializable;
 
 public class DirectedEdge implements Serializable, Comparable<DirectedEdge>{

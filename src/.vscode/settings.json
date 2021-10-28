@@ -1,0 +1,10 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\graphlets-over-time\\lib\\fastutil-8.4.3.jar",
+        "c:\\graphlets-over-time\\lib\\mmdb.jar",
+        "c:\\graphlets-over-time\\lib\\opencsv-5.3.jar",
+        "c:\\graphlets-over-time\\lib\\trove-3.0.3\\3.0.3\\lib\\junit.jar",
+        "c:\\graphlets-over-time\\lib\\trove-3.0.3\\3.0.3\\lib\\trove-3.0.3.jar"
+    ]
+}

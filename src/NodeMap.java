@@ -1,4 +1,3 @@
-package src;
 import java.util.ArrayList;
 import it.unimi.dsi.fastutil.ints.*;
 
@@ -69,60 +68,4 @@ public class NodeMap {
     public IntSet getAllVertices(){
         return nodes;
     }
-    /*
-    public long[] motifCountFromVertexRole(){
-        long[] vertex_role = new long[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        long[] result = new long[]{0, 0, 0, 0, 0, 0};
-        for(int key : this.vertex_role_map.keySet()){
-            VertexRole graphlet = this.vertex_role_map.get(key);
-            vertex_role[VertexRoleType.CLIQUE.ordinal()] += graphlet.CLIQUE;
-            vertex_role[VertexRoleType.CHORDAL_CYCLE_THREE.ordinal()] += graphlet.CHORDAL_CYCLE_THREE;
-            vertex_role[VertexRoleType.CHORDAL_CYCLE_TWO.ordinal()] += graphlet.CHORDAL_CYCLE_TWO;
-            vertex_role[VertexRoleType.CYCLE.ordinal()] += graphlet.CYCLE;
-            vertex_role[VertexRoleType.TAILED_TRIANGLE_THREE.ordinal()] += graphlet.TAILED_TRIANGLE_THREE;
-            vertex_role[VertexRoleType.TAILED_TRIANGLE_TWO.ordinal()] += graphlet.TAILED_TRIANGLE_TWO;
-            vertex_role[VertexRoleType.TAILED_TRIANGLE_ONE.ordinal()] += graphlet.TAILED_TRIANGLE_ONE;
-            vertex_role[VertexRoleType.PATH_TWO.ordinal()] += graphlet.PATH_TWO;
-            vertex_role[VertexRoleType.PATH_ONE.ordinal()] += graphlet.PATH_ONE;
-            vertex_role[VertexRoleType.STAR_THREE.ordinal()] += graphlet.STAR_THREE;
-            vertex_role[VertexRoleType.STAR_ONE.ordinal()] += graphlet.STAR_ONE;
-        }
-
-        result[MotifType.CLIQUE.ordinal()] = vertex_role[VertexRoleType.CLIQUE.ordinal()];
-        result[MotifType.CHORDAL_CYCLE.ordinal()] = vertex_role[VertexRoleType.CHORDAL_CYCLE_THREE.ordinal()] + 
-                                                    vertex_role[VertexRoleType.CHORDAL_CYCLE_TWO.ordinal()];
-        result[MotifType.TAILED_TRIANGLE.ordinal()] = vertex_role[VertexRoleType.TAILED_TRIANGLE_THREE.ordinal()] + 
-                                                       vertex_role[VertexRoleType.TAILED_TRIANGLE_TWO.ordinal()] +
-                                                       vertex_role[VertexRoleType.TAILED_TRIANGLE_ONE.ordinal()];
-        result[MotifType.CYCLE.ordinal()] = vertex_role[VertexRoleType.CYCLE.ordinal()];
-        result[MotifType.STAR.ordinal()] = vertex_role[VertexRoleType.STAR_THREE.ordinal()] + 
-                                           vertex_role[VertexRoleType.STAR_ONE.ordinal()];
-        result[MotifType.PATH.ordinal()] = vertex_role[VertexRoleType.PATH_TWO.ordinal()] + 
-                                           vertex_role[VertexRoleType.PATH_ONE.ordinal()];
-        
-        
-        for(int i = 0; i < 6; i++){
-            result[i] = result[i] / 4;
-        }
-        
-        return result;
-    }
-
-    
-    public long[] tripletCountFromTripletRole(){
-        long[] result = new long[]{0, 0};
-        for(int key : this.triplet_role_map.keySet()){
-            TripletRole graphlet = this.triplet_role_map.get(key);
-            result[TripletType.TRIANGLE.ordinal()] += graphlet.CYCLE;
-            result[TripletType.PATH.ordinal()] += graphlet.PATH_TWO;
-            result[TripletType.PATH.ordinal()] += graphlet.PATH_ONE;
-        }
-    
-        for(int i = 0; i < 2; i++){
-            result[i] = result[i] / 3;
-        }
-        
-        return result;
-    }
-    */
 }

@@ -1,5 +1,3 @@
-package src;
-
 public enum DirectedEdgeRole {
     e1_1,
     e2_1, e2_2,

@@ -1,5 +1,3 @@
-package src;
-
 import gnu.trove.map.hash.*;
 import java.util.ArrayList;
 import it.unimi.dsi.fastutil.ints.*;
@@ -119,55 +117,4 @@ public class DirectedNodeMap {
     public IntSet getAllVertices(){
         return nodes;
     }
-
-
-    /*
-    public long[] motifCountfromGraphlet(){
-        long[] graphlet = new long[DirectedGraphletType.values().length];
-        long[] motifs = new long[DirectedMotifType.values().length];
-        for(int key : this.graphlet_map.keySet()){
-            DirectedGraphlet vertex_role = this.graphlet_map.get(key);
-            for(int i = 0; i < DirectedGraphletType.values().length; i++){
-                graphlet[i] += vertex_role.role[i];
-            }
-        }
-        System.out.println(Arrays.toString(graphlet));
-        motifs[DirectedMotifType.m1.ordinal()] = graphlet[DirectedGraphletType.m1_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m1_2.ordinal()];
-        motifs[DirectedMotifType.m2.ordinal()] = graphlet[DirectedGraphletType.m2_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m2_2.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m2_3.ordinal()];
-        motifs[DirectedMotifType.m3.ordinal()] = graphlet[DirectedGraphletType.m3_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m3_2.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m3_3.ordinal()];
-        motifs[DirectedMotifType.m4.ordinal()] = graphlet[DirectedGraphletType.m4_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m4_2.ordinal()];
-        motifs[DirectedMotifType.m5.ordinal()] = graphlet[DirectedGraphletType.m5_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m5_2.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m5_3.ordinal()];
-        motifs[DirectedMotifType.m6.ordinal()] = graphlet[DirectedGraphletType.m6_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m6_2.ordinal()];
-        motifs[DirectedMotifType.m7.ordinal()] = graphlet[DirectedGraphletType.m7_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m7_2.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m7_3.ordinal()];
-        motifs[DirectedMotifType.m8.ordinal()] = graphlet[DirectedGraphletType.m8_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m8_2.ordinal()];
-        motifs[DirectedMotifType.m9.ordinal()] = graphlet[DirectedGraphletType.m9_1.ordinal()];
-        motifs[DirectedMotifType.m10.ordinal()] = graphlet[DirectedGraphletType.m10_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m10_2.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m10_3.ordinal()];
-        motifs[DirectedMotifType.m11.ordinal()] = graphlet[DirectedGraphletType.m11_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m11_2.ordinal()];
-        motifs[DirectedMotifType.m12.ordinal()] = graphlet[DirectedGraphletType.m12_1.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m12_2.ordinal()] +
-                                                 graphlet[DirectedGraphletType.m12_3.ordinal()];
-        motifs[DirectedMotifType.m13.ordinal()] = graphlet[DirectedGraphletType.m13_1.ordinal()];
-        for(int i = 0 ; i < DirectedMotifType.values().length; i++){
-            motifs[i] /= 3;
-        }        
-        return motifs;
-    }
-    */
-    
-
 }

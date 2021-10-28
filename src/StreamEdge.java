@@ -1,5 +1,3 @@
-package src;
-
 import java.io.Serializable;
 
 public class StreamEdge implements Serializable, Comparable<StreamEdge>{
