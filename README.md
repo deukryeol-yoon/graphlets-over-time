@@ -14,9 +14,7 @@ Our code is provided like below:
  * The input format should be lines of directed edges with timestamp (yyyy-mm-dd).
 
 ## Notice
- * Sice the maximum volumn of each file is 100MB, we do split compression for large datasets. Please decompress those files below.
-  -- data/data.vol1.egg ~ data.vol7.egg
-  -- data/centrality/patent-pagerank.egg
+ * Sice the maximum volumn of each file is 100MB, we do split compression for large datasets. Please decompress those files: data/data.vol1.egg ~ data.vol7.egg, data/centrality/patent-pagerank.egg
 
 ## Running Demo
  Because of data sizes, we only provide original datasets and source codes. You could generate intermediate files by following script files.
