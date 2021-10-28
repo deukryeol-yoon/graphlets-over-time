@@ -22,7 +22,7 @@ public class main {
         //{"askubuntu", "137517","1954", "596933"},
         //{"askubuntu-random", "137517", "1954", "964438"}
     };
-    static int MODE = 1;
+    //static int MODE = 1;
     
     public static void main(String args[]){
         //String dataset_name = dataset[0][0];
