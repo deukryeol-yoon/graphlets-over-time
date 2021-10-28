@@ -25,15 +25,15 @@ public class main {
     static int MODE = 1;
     
     public static void main(String args[]){
-        String dataset_name = dataset[0][0];
-        String numNodes = dataset[0][1];
-        String maxDegree = dataset[0][2];
-        String numEdges = dataset[0][3];
-        //int MODE = Integer.parseInt(args[0]);
-        //String dataset_name = args[1];
-        //String numNodes = args[2];
-        //String maxDegree = args[3];
-        //String numEdges = args[4];
+        //String dataset_name = dataset[0][0];
+        //String numNodes = dataset[0][1];
+        //String maxDegree = dataset[0][2];
+        //String numEdges = dataset[0][3];
+        int MODE = Integer.parseInt(args[0]);
+        String dataset_name = args[1];
+        String numNodes = args[2];
+        String maxDegree = args[3];
+        String numEdges = args[4];
         String dpath = path + "/../data/" +dataset_name + ".out";
         if(MODE == 1){
             // Observation 1, 2, 3
