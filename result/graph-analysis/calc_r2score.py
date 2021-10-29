@@ -31,10 +31,10 @@ def fitting(list_dataset):
 		output = []
 		for i, column in enumerate(df.columns):
 			linreg = linear_model.LinearRegression()
-			model = linreg.fit(np.array(x_test).reshape(-1, 1), df[column].iloc[x_test]) # x축 : 1, 2, 3, ... N (# edges), y축 : ratio of motif[column]
-			y_pred = model.predict(X.reshape(-1, 1)) # get predicted line y_pred via x축
+			model = linreg.fit(np.array(x_test).reshape(-1, 1), df[column].iloc[x_test]) 
+			y_pred = model.predict(X.reshape(-1, 1)) 
 
-			output.append(r2_score(df[column][x_start:], y_pred[x_start:])) # y_pred line과 실제 prediction value와의 r^2 계산
+			output.append(r2_score(df[column][x_start:], y_pred[x_start:])) 
 		print("r2score for " + dataset + " : " + str(sum(output) / len(output)))
 
 if __name__ == '__main__':
