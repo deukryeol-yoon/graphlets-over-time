@@ -65,7 +65,6 @@ public class NodeRoleSignal {
             Collections.sort(centrality_list);
             boundary_centrality = new double[]{centrality_list.get(boundary_idx[0]), centrality_list.get(boundary_idx[1]), centrality_list.get(boundary_idx[2]), centrality_list.get(boundary_idx[3]), centrality_list.get(boundary_idx[4])};
             System.out.println(Arrays.toString(boundary_centrality));
-            // Result 폴더 만들어주기
             String directory = resultFolder + "/" + centrality + "/";
             folder = new File(directory);
             if (!folder.exists()){
