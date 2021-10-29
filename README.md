@@ -11,9 +11,9 @@ Our code is provided like below:
  * Java version : 15.0.1, Python version : 3.7.0.
 
 ## Input Format
- * The input format should be lines of temporal edges, where each line represents source node, destination node and timestamp.
- * The node index start from 0 and increase 1 whenever new node arrives. (i.e., 0, 1, 2, ..., |V|-2, |V|-1)
- * For example, with 3 temporal edges: {0 → 1, 2001-01-01}, {0 → 2, 2001-01-01}, and {1 → 3, 2001-01-02}, the input file should be:
+ * The input file should contain a set of temporal edges. Each temporal edge is represented by 1) index of the source node, 2) index of the destination node, and 3) its timestamp written in a line.
+ * The node index starts from 0 and increases by 1 whenever a new node arrives (i.e., 0, 1, 2, ..., |V|-2, |V|-1).
+ * For example, for a set of 3 temporal edges (0 → 1, 2001-01-01), (0 → 2, 2001-01-01), and (1 → 3, 2001-01-02), the input file should be: 
 ```
   0 1 2001-01-01
   0 2 2001-01-01
