@@ -1,5 +1,5 @@
-# Graphlets-over-Time : A New Lens for Temporal Graph Analysis
-Source code for the paper [Graphlets-over-Time: A New Lens for Temporal Graph Analysis]
+# Graphlets over Time : A New Lens for Temporal Graph Analysis
+Source code for the paper [Graphlets over Time: A New Lens for Temporal Graph Analysis]
 
 Our code is provided like below:
 * data : 9 real-world temporal graphs and their randomized graph used in this paper. Since the size of each file is limited to 100MB in the github, we do split-compression for large files. Please decompress them before demo: data/data.vol1.egg ~ data.vol7.egg, data/centrality/patent-pagerank.egg
