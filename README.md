@@ -7,7 +7,7 @@ Our code is provided like below:
 * result : Three categorized results: (1) graph-analysis (2) node-analysis (3) edge-analysis. The code for visualization and prediction is also provided (implemented in Python). 
 
 ## Version
- * Our code works on either Windows10 or Linux. 
+ * Our code works on both Windows10 and Linux. 
  * Java version : 15.0.1, Python version : 3.7.0.
 
 ## Input Format
