@@ -23,7 +23,7 @@ edges = ["m3-m10", "m2-m9", "m2-m7", "m2-m5", "m8-m12", "m4-m7", "new-m3", "new-
 
 small_dataset = ["hepph", "hepth", "enron", "email-eu", "college_msg", "mathoverflow", "askubuntu", ]
 small_label =["HepPh", "HepTh", "Enron", "EU", "College", "Math", "Ask"]
-numRandom = 10
+numRandom = 50
 def transition_diagram():
 	print('transition_diagram')
 	list_mtx = []
