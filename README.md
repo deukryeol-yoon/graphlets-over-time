@@ -21,7 +21,8 @@ Our code is provided like below:
 ```
 
 ## Running Demo
-We provide the original data in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0). You can create intermediate files and see the results using script files below:
+We provide the original data in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0). Please download the files to the 'data' folder. 
+You can create intermediate files and see the results using script files below:
  * generate-all-evolution.sh : generate ratios of graphlets in datasets. Because of time complexity, large datasets (patent, stackoverflow) is commented out.
  * graph-evolution.sh : draw ratios of graphlets over time (Figures in Table 4.) and calculate average R-squared value of them. 
  * graphlet-transition-graph.sh : draw graphlet transition graphs. (Figures in Table 5)
