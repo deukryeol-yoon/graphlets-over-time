@@ -9,7 +9,7 @@ import java.io.*;
 
 import com.opencsv.CSVWriter;
 
-public class  GraphletEvolution {
+public class GraphletEvolution {
     DirectedNodeMap node_map;
     Random rd;
     long[] current = new long[GraphletType.values().length]; 
@@ -35,6 +35,7 @@ public class  GraphletEvolution {
     long[] change = new long[transitionHeader[0].length];
     String resultFolder;
     int[] writeTime = new int[10];
+    int step_count = 0;
     public GraphletEvolution(String read_path, String dataset, int numNodes, int numEdges){
         rd = new Random();
         this.read_path = read_path;
@@ -42,10 +43,12 @@ public class  GraphletEvolution {
         this.numNodes = numNodes;
         this.numEdges = numEdges;
         this.node_map = new DirectedNodeMap(this.numNodes);
+        this.step_count = this.numEdges / 1000;
         resultFolder = project_path + "/../result/graph-analysis/" + dataset;
         for(int i = 0 ; i < 10; i++){
             writeTime[i] = (int) (numEdges * 0.1 * (i+1));
         }
+        
     }
 
     public void run(){
@@ -64,7 +67,7 @@ public class  GraphletEvolution {
             mw = new CSVWriter(new FileWriter(new File(motif_path), false));
             mv = new CSVWriter(new FileWriter(new File(motif_abs_path), false));
             String[] motif_header = {
-                "m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "m9", "m10", "m11", "m12", "m13"
+                "idx", "m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "m9", "m10", "m11", "m12", "m13"
             };
             mw.writeNext(motif_header);
             mw.flush();
@@ -101,7 +104,6 @@ public class  GraphletEvolution {
         } catch(Exception e){
             e.printStackTrace();
         }
-
         fileWriteChange();
     }
 
@@ -110,11 +112,13 @@ public class  GraphletEvolution {
         if (node_map.contains(v1, v2) || v1 == v2){
             return;
         }
-        IntOpenHashSet visited = new IntOpenHashSet();
+        
+        IntOpenHashSet visited1 = new IntOpenHashSet();
+        IntOpenHashSet visited2 = new IntOpenHashSet();
 
         for(int v3 : node_map.getNeighbors(v1)){
             if (v2 == v3) continue;
-            visited.add(v3);
+            visited1.add(v3);
 
             if (node_map.isConnected(v2, v3) || node_map.contains(v2, v1)){
                 GraphletType prevMotifType = getGraphletType(v1, v2, v3, false);
@@ -130,8 +134,8 @@ public class  GraphletEvolution {
             }
         }
         for (int v3 : node_map.getNeighbors(v2)){
-            if (visited.contains(v3)) continue;
             if (v1 == v3) continue;
+            visited2.add(v3);
             if (node_map.isConnected(v1, v3) || node_map.contains(v2, v1)){
                 GraphletType prevMotifType = getGraphletType(v1, v2, v3, false);
                 GraphletType newMotifType = getGraphletType(v1, v2, v3, true);
@@ -144,9 +148,16 @@ public class  GraphletEvolution {
                 graphletFrequency[newMotifType.ordinal()]++;
                 recordChangeMotif("new", newMotifType);
             }
-
         }
-
+        visited1.retainAll(visited2); 
+        for (int v4 : visited1){
+            GraphletType prevMotifType = getGraphletType(v1, v2, v4, false);
+            GraphletType newMotifType = getGraphletType(v1, v2, v4, true);
+            graphletFrequency[prevMotifType.ordinal()]++;
+            graphletFrequency[newMotifType.ordinal()]--;
+            recordChangeMotif(prevMotifType, newMotifType);
+        }
+        
         node_map.addEdge(v1, v2);
         count++;
         
@@ -157,34 +168,39 @@ public class  GraphletEvolution {
         if (total == 0) return;
         
 
-        String[] current_string = new String[current.length];
+        String[] current_string = new String[current.length + 1];
+        
         try{
             
             // Write ratio distribution
-            for(int i = 0; i < current.length; i++){
-                current_string[i] = Float.toString(graphletFrequency[i] / total);
+            if ( (count+1) % step_count == 0){
+                current_string[0] = Integer.toString(count);
+                for(int i = 0; i < current.length; i++){
+                    current_string[i+1] = Float.toString(graphletFrequency[i] / total);
+                }
+                mw.writeNext(current_string);
+                mw.flush();
             }
-            mw.writeNext(current_string);
-            mw.flush();
             
             // Write absolute count distribution
-            /*
-            for(int i = 0; i < current.length; i++){
-                current_string[i] = Long.toString(graphletFrequency[i]);
-            }
-            mv.writeNext(current_string);
-            mv.flush();
-            */
+            
+            //for(int i = 0; i < current.length; i++){
+            //    current_string[i] = Long.toString(graphletFrequency[i]);
+            //}
+            //mv.writeNext(current_string);
+            //mv.flush();
+            
         }
         catch(Exception e){
             e.printStackTrace();
         }
         
-        if (count % 1000 == 0){
+        if (count % 1000000 == 0){
             System.out.println("**********************");
             System.out.println("iter : " + count);
             System.out.println(Arrays.toString(graphletFrequency));
         }
+        
 
     }
 
@@ -285,4 +301,45 @@ public class  GraphletEvolution {
     public static double log2(double x){
         return Math.log(x) / Math.log(2);
     }
+
+    public long[] countGraphlet(DirectedNodeMap node_map){
+        long[] result = new long[GraphletType.values().length];
+        for(DirectedEdge e : node_map.getAllEdges()){
+            int v1 = e.getSource();
+            int v2 = e.getDestination();
+            for (int v3 : node_map.getNeighbors(v1)){
+                if (v2 == v3){
+                    continue;
+                }
+                GraphletType type = getGraphletType(v1, v2, v3, true);
+                result[type.ordinal()]++;
+            }
+
+            for (int v3 : node_map.getNeighbors(v2)){
+                if (v3 == v1 || node_map.getNeighbors(v1).contains(v3)){
+                    continue;
+                }
+                GraphletType type = getGraphletType(v1, v2, v3, true);
+                result[type.ordinal()]++;
+            }
+        }
+
+        result[GraphletType.m1.ordinal()] /= 2;
+        result[GraphletType.m2.ordinal()] /= 2;
+        result[GraphletType.m3.ordinal()] /= 3;
+        result[GraphletType.m4.ordinal()] /= 2;
+        result[GraphletType.m5.ordinal()] /= 3;
+        result[GraphletType.m6.ordinal()] /= 4;
+        result[GraphletType.m7.ordinal()] /= 3;
+        result[GraphletType.m8.ordinal()] /= 4;
+        result[GraphletType.m9.ordinal()] /= 3;
+        result[GraphletType.m10.ordinal()] /= 4;
+        result[GraphletType.m11.ordinal()] /= 4;
+        result[GraphletType.m12.ordinal()] /= 5;
+        result[GraphletType.m13.ordinal()] /= 6;
+
+
+        return result;
+    }
+
 }
