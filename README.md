@@ -7,9 +7,13 @@ Our code is provided like below:
 * result : Three categorized results: (1) graph-analysis (2) node-analysis (3) edge-analysis. The code for visualization and prediction is also provided (implemented in Python). 
 
 ## Datasets
-The preprocessed datasets and the centralites of nodes in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0) used in the paper. Please download the datasets from the links, and put the files under the "./data" folder so that the hierarchy would be like, 
+The preprocessed datasets and the centralites of nodes used in the paper can be provided in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0)r. Please download the datasets from the links, and put the files under the "./data" folder so that the hierarchy would be like, for example, 
 ```
 data
+  |__centrality
+      |__askubuntu-degree.csv
+      |__askubuntu-between.csv
+      |__...
   |__askubuntu.out
   |__askubuntu-random.out
   |__ ...
@@ -45,7 +49,6 @@ The original datasets used in the papers are listed as follows:
 ```
 
 ## Running Demo
-First, please download the provided datasets and the centralites in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0).
 You can create intermediate files and see the results using script files below. Because of the time complexity, large datasets (Patent, Stackoverflow) are commented out.
  * draw-correlation-heatmap.sh : draw a heatmap of similarity of graphs in dataset. (Figure 2 and 9)
  * generate-all-evolution.sh : generate ratios of graphlets in datasets. 
