@@ -7,7 +7,7 @@ Our code is provided like below:
 * result : Three categorized results: (1) graph-analysis (2) node-analysis (3) edge-analysis. The code for visualization and prediction is also provided (implemented in Python). 
 
 ## Datasets
-The preprocessed datasets and the centralites of nodes used in the paper can be provided in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0)r. Please download the datasets from the links, and put the files under the "./data" folder so that the hierarchy would be like, for example, 
+The preprocessed datasets and the centralites of nodes used in the paper can be provided in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0). Please download the datasets from the links, and put the files under the "./data" folder so that the hierarchy would be like, for example, 
 ```
 data
   |__centrality
