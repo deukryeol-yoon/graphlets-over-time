@@ -1,13 +1,13 @@
-# Graphlets over Time : A New Lens for Temporal Graph Analysis
-Source code for the paper [Graphlets over Time: A New Lens for Temporal Graph Analysis]
+# Graphlets over Time: A New Lens for Temporal Graph Analysis
+Source code and datasets for the paper [Graphlets over Time: A New Lens for Temporal Graph Analysis]
 
-Our code is provided like below:
-* data : 9 real-world temporal graphs and their randomized graph used in this paper. 
-* src : source code for counting graphlets, transitions of graphlets, node roles, and edge roles (implemented in Java).
-* result : Three categorized results: (1) graph-analysis (2) node-analysis (3) edge-analysis. The code for visualization and prediction is also provided (implemented in Python). 
+The contribution of this work is as follows:
+ - _Patterns_ : We find several interesting observations about evolution patterns of graphlets in temporal graphs: surprising similarity in graphs from the same domain and local-structural signals regarding the future importance of nodes and edges.
+ - _Tool_ : We introduce graphlet transition graphs, which is an effective tool for measuring the similarity of local dynamics in temporal graphs of different sizes.
+ - _Prediction_ : We enhance the accuracy of predicting the future importance of nodes and edges by introducing role-based local features, which are complementary to global features.
 
 ## Datasets
-The preprocessed datasets and the centralites of nodes used in the paper can be provided in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0). Please download the datasets from the links, and put the files under the "./data" folder so that the hierarchy would be like, for example, 
+The preprocessed datasets and the centralities of nodes used in the paper can be provided [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0). Please download the files from the above link, and put them under the "./data" folder so that the hierarchy would be like, for example, 
 ```
 data
   |__centrality
@@ -40,7 +40,7 @@ Original datasets used in the paper are listed as follows:
  * JDK version : 15.0.1, Python version : 3.7.0.
 
 ## Input Format
- * The input file should contain a set of temporal edges. Each temporal edge is represented by 1) index of the source node, 2) index of the destination node, and 3) its timestamp written in a line.
+ * The input file should contain a set of temporal edges. Each temporal edge is represented by 1) the index of the source node, 2) the index of the destination node, and 3) its timestamp, written in a line.
  * The node index starts from 0 and increases by 1 whenever a new node arrives (i.e., 0, 1, 2, ..., |V|-2, |V|-1).
  * For example, for a set of 3 temporal edges (0 → 1, 2001-01-01), (0 → 2, 2001-01-01), and (1 → 3, 2001-01-02), the input file should be: 
 ```
@@ -50,10 +50,10 @@ Original datasets used in the paper are listed as follows:
 ```
 
 ## Running Demo
-You can create intermediate files and see results by running script files below. Because it takes a long time to run large datasets (Patent, Stackoverflow), they are commented out.
- * draw-correlation-heatmap.sh : draw a heatmap of similarity of graphs in dataset. (Figure 2 and 9)
+You can create intermediate files and see results by running the script files below. Because it takes a long time to run large datasets (Patent, Stackoverflow), they are commented out.
+ * draw-correlation-heatmap.sh : draw a heatmap of the similarity of graphs. (Figures 2 and 9)
  * generate-all-evolution.sh : generate ratios of graphlets in datasets. 
- * graph-evolution.sh : draw ratios of graphlets over time (Figure 3) and calculate average R-squared value of them. 
+ * graph-evolution.sh : draw ratios of graphlets over time (Figure 3) and calculate the average R-squared value of them. 
  * graphlet-transition-graph.sh : draw graphlet transition graphs. (Figure 4)
  * node_signal.sh :  draw monotonic increasing or decreasing node signals. (Figure 7)
  * node_prediction.sh : generate node features, which are node role, node prominence profile, and global statistics, and predict the centrality of nodes using them.  
