@@ -19,7 +19,8 @@ data
   |__ ...
 src
 ```
-The original datasets used in the papers are listed as follows:
+
+Original datasets used in the paper are listed as follows:
 
 | Name                             	| #Nodes    | #Edges    	| Description                                                             		| Download Original Data                                                                       |
 |-----------------------------------|-----------|---------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
@@ -49,7 +50,7 @@ The original datasets used in the papers are listed as follows:
 ```
 
 ## Running Demo
-You can create intermediate files and see the results using script files below. Because of the time complexity, large datasets (Patent, Stackoverflow) are commented out.
+You can create intermediate files and see results by running script files below. Because it takes a long time to run large datasets (Patent, Stackoverflow), they are commented out.
  * draw-correlation-heatmap.sh : draw a heatmap of similarity of graphs in dataset. (Figure 2 and 9)
  * generate-all-evolution.sh : generate ratios of graphlets in datasets. 
  * graph-evolution.sh : draw ratios of graphlets over time (Figure 3) and calculate average R-squared value of them. 
