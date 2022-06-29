@@ -9,4 +9,4 @@ python draw-correlation-motif-transition.py
 #java -jar graphlets-over-time.jar 1 patent 3774362 776 16512782
 #java -jar graphlets-over-time.jar 1 stackoverflow 2601977 44067 63497051
 #cd ../result/graph-analysis
-python draw-correlation-motif-transition.py --a
+#python draw-correlation-motif-transition.py --a
