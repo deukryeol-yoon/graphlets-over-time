@@ -31,7 +31,7 @@ The original datasets used in the papers are listed as follows:
 | Enron (enron)    					| 55,655    | 20,296	   	| [Email/Message](http://www.cs.cmu.edu/~enron/) 								| [Link](https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz) |
 | sx-mathoverflow (mathoverflow)    | 24,818    | 262,106   	| [Online Q/A](https://snap.stanford.edu/data/sx-mathoverflow.html/) 			| [Link](https://snap.stanford.edu/data/sx-mathoverflow.txt.gz) |
 | sx-askubuntu (askubuntu)    		| 159,316   | 90,489   		| [Online Q/A](https://snap.stanford.edu/data/sx-askubuntu.html/) 				| [Link](https://snap.stanford.edu/data/sx-askubuntu.txt.gz) |
-| sx-stackoverflow (hepth)    		| 2,601,977 | 16,266,395	| [Online Q/A](https://snap.stanford.edu/data/sx-stackoverflow.html/) 			| [Link](https://snap.stanford.edu/data/sx-stackoverflow.txt.gz) |
+| sx-stackoverflow (stackoverflow)    		| 2,601,977 | 16,266,395	| [Online Q/A](https://snap.stanford.edu/data/sx-stackoverflow.html/) 			| [Link](https://snap.stanford.edu/data/sx-stackoverflow.txt.gz) |
 
 
 ## Version
