@@ -28,7 +28,7 @@ The original datasets used in the papers are listed as follows:
 | cite-Patents (hepph)    			| 3,774,362 | 16,512,782   	| [Citation](https://snap.stanford.edu/data/cit-Patents.html) 					| [Link](https://snap.stanford.edu/data/cit-Patents.txt.gz) |
 | email-EU-core-temporal (email-eu) | 986     	| 209,203   	| [Email/Message](https://snap.stanford.edu/data/email-Eu-core-temporal.html) 	| [Link](https://snap.stanford.edu/data/email-Eu-core-temporal.txt.gz) |
 | CollegeMsg (college_msg) 			| 1,899     | 24,929   		| [Email/Message](https://snap.stanford.edu/data/CollegeMsg.html) 				| [Link](https://snap.stanford.edu/data/CollegeMsg.txt.gz) |
-| Enron (enron)    					| 55,655    | 20,296	   	| [Email/Message](http://www.cs.cmu.edu/~enron) 								| [Link](https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz) |
+| email-Enron (enron)    					| 55,655    | 20,296	   	| [Email/Message](http://www.cs.cmu.edu/~enron) 								| [Link](https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz) |
 | sx-mathoverflow (mathoverflow)    | 24,818    | 262,106   	| [Online Q/A](https://snap.stanford.edu/data/sx-mathoverflow.html) 			| [Link](https://snap.stanford.edu/data/sx-mathoverflow.txt.gz) |
 | sx-askubuntu (askubuntu)    		| 159,316   | 90,489   		| [Online Q/A](https://snap.stanford.edu/data/sx-askubuntu.html) 				| [Link](https://snap.stanford.edu/data/sx-askubuntu.txt.gz) |
 | sx-stackoverflow (stackoverflow)    		| 2,601,977 | 16,266,395	| [Online Q/A](https://snap.stanford.edu/data/sx-stackoverflow.html) 			| [Link](https://snap.stanford.edu/data/sx-stackoverflow.txt.gz) |
