@@ -21,7 +21,7 @@ Our code is provided like below:
 ```
 
 ## Running Demo
-We provide the dataset [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0) used in the paper. Please download the files to the 'data' folder. 
+We provide the datasets and the centralites of nodes [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0) used in the paper. Please download the files to the 'data' folder. 
 You can create intermediate files and see the results using script files below:
  * generate-all-evolution.sh : generate ratios of graphlets in datasets. Because of time complexity, large datasets (patent, stackoverflow) is commented out.
  * graph-evolution.sh : draw ratios of graphlets over time (Figures in Table 4.) and calculate average R-squared value of them. 
