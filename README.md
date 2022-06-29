@@ -2,7 +2,7 @@
 Source code for the paper [Graphlets over Time: A New Lens for Temporal Graph Analysis]
 
 Our code is provided like below:
-* data : 9 real-world temporal graphs and their randomized graph used in this paper. Since the size of each file is limited to 100MB in the github, we do split-compression for large files. Please decompress them before demo: data/data.vol1.egg ~ data.vol7.egg, data/centrality/patent-pagerank.egg
+* data : 9 real-world temporal graphs and their randomized graph used in this paper. We provide the datasets and the centralites of nodes [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0) used in the paper. Please download the files to the 'data' folder. 
 * src : source code for counting graphlets, transitions of graphlets, node roles, and edge roles (implemented in Java).
 * result : Three categorized results: (1) graph-analysis (2) node-analysis (3) edge-analysis. The code for visualization and prediction is also provided (implemented in Python). 
 
@@ -21,7 +21,7 @@ Our code is provided like below:
 ```
 
 ## Running Demo
-We provide the datasets and the centralites of nodes [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0) used in the paper. Please download the files to the 'data' folder. 
+First, please download the provided datasets and the centralites in [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0).
 You can create intermediate files and see the results using script files below:
  * generate-all-evolution.sh : generate ratios of graphlets in datasets. Because of time complexity, large datasets (patent, stackoverflow) is commented out.
  * graph-evolution.sh : draw ratios of graphlets over time (Figures in Table 4.) and calculate average R-squared value of them. 
