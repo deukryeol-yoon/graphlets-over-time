@@ -24,7 +24,7 @@ Original datasets used in the paper are listed as follows:
 
 | Name                             	| #Nodes    | #Edges    	| Description                                                             		| Download Original Data                                                                       |
 |-----------------------------------|-----------|---------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| cite-HepPh (hepph)    			| 34,545    | 346,849   	| [Citation](https://snap.stanford.edu/data/cit-HepPh.html) 					| [Link](https://snap.stanford.edu/data/cit-HepPh.txt.gz) |
+| cite-HepPh (hepph)    			| 34,565    | 346,849   	| [Citation](https://snap.stanford.edu/data/cit-HepPh.html) 					| [Link](https://snap.stanford.edu/data/cit-HepPh.txt.gz) |
 | cite-HepTh (hepth)    			| 18,477    | 136,190      	| [Citation](https://snap.stanford.edu/data/cit-HepTh.html) 					| [Link](https://snap.stanford.edu/data/cit-HepTh.txt.gz) |
 | cite-Patents (patent)    			| 3,774,362 | 16,512,782   	| [Citation](https://snap.stanford.edu/data/cit-Patents.html) 					| [Link](https://snap.stanford.edu/data/cit-Patents.txt.gz) |
 | email-Enron (enron)    			| 55,655    | 209,203	   	| [Email/Message](http://www.cs.cmu.edu/~enron) 								| [Link](https://www.cs.cmu.edu/~./enron/enron_mail_20150507.tar.gz) |
