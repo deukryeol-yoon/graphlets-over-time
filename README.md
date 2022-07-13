@@ -7,7 +7,7 @@ The contribution of this work is as follows:
  - _Prediction_ : We enhance the accuracy of predicting the future importance of nodes and edges by introducing role-based local features, which are complementary to global features.
 
 ## Datasets
-The preprocessed datasets and the centralities of nodes used in the paper can be provided [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0). Please download the files from the above link, and put them under the "./data" folder so that the hierarchy would be like, for example, 
+The preprocessed datasets and the centralities of nodes used in the paper are provided [here](https://www.dropbox.com/sh/8vkizmq2mzknav4/AACGR-ZOWHJ4JkLqWWMeZSIGa?dl=0). Please download the files from the above link, and put them under the "./data" folder so that the hierarchy would be like, for example, 
 ```
 data
   |__centrality
