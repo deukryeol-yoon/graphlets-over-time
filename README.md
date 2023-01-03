@@ -50,12 +50,12 @@ Original datasets used in the paper are listed as follows:
 ```
 
 ## Running Demo
-You can create intermediate files and see results by running the script files below. Because it takes a long time to run large datasets (Patent, Stackoverflow), they are commented out.
- * draw-correlation-heatmap.sh : draw a heatmap of the similarity of graphs. (Figures 1 and 6)
- * generate-all-evolution.sh : generate ratios of graphlets in datasets. 
+You can create intermediate files and see results by running script files below. Because it takes a long time to run large datasets (Patent, Stackoverflow), they are commented out.
+ * draw-correlation-heatmap.sh : draw a heatmap which represents the similarity between graphs. (Figures 1 and 6)
+ * generate-all-evolution.sh : generate the distributions of ratios of graphlet instances over time among all datasets. 
  * graph-evolution.sh : draw ratios of instances of graphlets over time. (Table 3)
  * graphlet-transition-graph.sh : draw graphlet transition graphs. (Table 5)
  * node_signal.sh :  draw the Spearman's rank correlation coefficient between node role ratios and future centralities. (Figure 4)
- * node_prediction.sh : generate node features, which are node role, node prominence profile, and global statistics, and predict the centrality of nodes using them.  
+ * node_prediction.sh : generate node features (node role, node prominence profile, and global statistics) and predict the centrality of nodes using them.  
  * edge_signal.sh : draw the Spearman's rank correlation coefficient between edge role ratios and future centralities. (Figure 5)
- * edge_prediction.sh : generate edge features, which are edge role and global statistics, and predict the centrality of edges using them.
+ * edge_prediction.sh : generate edge features (edge role and global statistics) and predict the centrality of edges using them.
