@@ -6,6 +6,8 @@ import csv
 import os
 import seaborn as sns
 from sklearn.linear_model import LinearRegression
+from scipy.stats import spearmanr
+import math
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 node_role = ["m1_1", "m1_2",
@@ -26,11 +28,10 @@ node_role = ["m1_1", "m1_2",
 title = {"between" : "Betweenness", "closeness" : "Closeness", "degree" : "In-degree", "pagerank" : "Pagerank", "edge-betweenness" : "Edge\nBetweenness"}
 
 def draw(dataset_list, centrality_list):
-   colors = sns.color_palette("bright", 30)
-   total_one = 0
-   total_minus = 0
    for centrality in centrality_list:
       list_slope = []
+      sum_abs_coeff = 0
+      num_valid_coeff = 0
       for dataset in dataset_list:
          df = pd.DataFrame(columns=node_role, dtype=float)
          directory = osp.join(osp.abspath(""), dataset, centrality)
@@ -38,49 +39,30 @@ def draw(dataset_list, centrality_list):
          for csvfile in files:
             try:
                df_ = pd.read_csv(directory + "/" + csvfile, encoding='euc-kr')
-               df = df.append(df_.loc[1, :], ignore_index=True) # degree 2 : df_.loc[0, :], degree 4 : df_.loc[1, :], degree 8 : df_.loc[2, :]
+               df = df.append(df_.loc[2, :], ignore_index=True) # degree 2 : df_.loc[0, :], degree 4 : df_.loc[1, :], degree 8 : df_.loc[2, :]
             except:
-            	print("")
+               pass
          if df.empty:
             continue
-         
-         ascending = []
-         descending = []
+         rank = [i for i in range(len(df))]
+         rank_correlation = []
          for column in df.columns:
-            if all(earlier > later for earlier, later in zip(df[column], df[column][1:])):
-               descending.append(column)
-            elif all(earlier < later for earlier, later in zip(df[column], df[column][1:])):
-               ascending.append(column)
+            coef, p = spearmanr(rank, df[column])
+            rank_correlation.append(coef)
+            if not math.isnan(coef):
+               sum_abs_coeff += abs(coef)
+               num_valid_coeff += 1
       
-         dataset_slope = []
-         for column in df.columns:
-                
-            if column in ascending:
-               dataset_slope.append(1)
-            elif column in descending:
-               dataset_slope.append(-1)
-            else :
-               dataset_slope.append(0)
+         dataset_slope = rank_correlation
 
          list_slope.append(dataset_slope)
+      print(centrality, num_valid_coeff, sum_abs_coeff / num_valid_coeff)
       np_slope = np.array(list_slope)
-      max_abs = max(abs(np_slope.min()), abs(np_slope.max()))
+      np_slope[np.isnan(np_slope)]=0
       fig, ax = plt.subplots(figsize=(6, 2))
-      zero = 0
-      one = 0
-      minus_one = 0
-      for i in range(7):
-         for j in range(30):
-            if list_slope[i][j] == 0:
-               zero += 1
-            elif list_slope[i][j] == 1:
-               one += 1
-            else:
-               minus_one += 1
-      print(centrality, one, minus_one)
-      total_one += one
-      total_minus += minus_one
-      p = ax.pcolor(np_slope, vmin = -max_abs, vmax=max_abs, cmap= sns.color_palette("vlag", as_cmap=True), edgecolors='black')
+
+      p = ax.pcolor(np_slope, vmin = -1, vmax=1, cmap= sns.color_palette("vlag", as_cmap=True), edgecolors='black')
+      cbar = plt.colorbar(p, ticks=[-1, -0.5, 0.0, 0.5, 1])
       dataset_label=["HepPh", "HepTh", "Enron", "EU", "College", "Math", "Ask"]
       ax.set_yticks([0.5, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5])
       ax.set_yticklabels(dataset_label)
@@ -107,8 +89,7 @@ def draw(dataset_list, centrality_list):
          plt.xlabel("Edge Role", fontsize=15)
       plt.ylabel(title[centrality], fontsize=15)
       plt.tight_layout()
-      plt.show()
-   print(total_one, total_minus, total_one + total_minus)
+      plt.savefig(centrality+'_signal.pdf')
 
 draw(["hepph", "hepth", "email-eu", "enron", "college_msg", "mathoverflow", "askubuntu"], ["degree", "between", "closeness", "pagerank"])
-
+#draw(["hepph", "hepth", "email-eu", "enron", "college_msg", "mathoverflow", "askubuntu"], ["edge-betweenness"])
